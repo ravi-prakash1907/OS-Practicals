@@ -2,6 +2,71 @@
 
 #include<conio.h>
 #include <stdio.h>
+
+int selworst(int p,int b[10],int bi)
+{
+	int k=0,ar[10],arin[10],max,i,j,index;
+	for(i=0;i<bi;i++)
+	{
+		if(p<=b[i])
+		{
+			ar[k]=b[i];
+			arin[k]=i;
+			k++;
+		}
+	}
+
+	if(k==0)
+		return -1;
+	else
+	{
+		max = ar[0];
+		index=arin[0];
+	}
+
+	for(i=0;i<k;i++)
+	{
+		if(max<ar[i])
+		{
+			max=ar[i];
+			index=arin[i];
+			return index;
+		}
+	}
+}
+
+
+int selbest(int p, int b[10], int bi)
+{
+	int k=0, ar[10],arin[10],min,i,j,index;
+
+	for(i=0;i<bi;i++)
+	{	if(p<=b[i])
+		{
+			ar[k]=b[i];
+			arin[k]=i,
+			k++;
+		}
+	}
+	if(k==0)
+		return -1;
+	else
+	{
+		min=ar[0];
+		index=arin[0];
+		for(i=0;i<k;i++)
+		{
+			if(min>ar[i])
+			{
+				min=ar[i];
+				index=arin[i];
+			}
+		}
+
+		return index;
+	}
+}
+
 void main()
 {
 	int sb,sp,p[10],b[10],i,j;
@@ -72,7 +137,7 @@ void main()
   	{
   	  for(i=0;i<sp;i++)
 	  {
-		j=selbest(p[i].b,sb);
+		j=selbest(p[i],b,sb);
 		if(j!=-1)
 		{
 			printf("process%d is allocated block%d\n",i,j);
@@ -88,7 +153,7 @@ void main()
 	{
 	  for(i=0;i<sp;i++)
 	  {
-		j=selworst(p[i].b,sb);	// this fun
+		j=selworst(p[i],b,sb);	// this fun
 		if(j!=-1)
 		{
 			printf("process%d is allocated block%d\n",i,j);
