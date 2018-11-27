@@ -1,14 +1,12 @@
 //		QUE 7 for Round Robin scheduling 
 
-#include<iostream.h>
-#include<conio.h>
+#include<stdio.h>
 
 void main()
 {
 	int prcs[10], n, i, arv[10], brst[10], temp, tempb, tempp, sumb, j;
 	int tempa, t, time, wt[10], wtt[10], max, maxi, y=1;
-	float st=0.0, tt=0.0, wt=0.0;
-	clrscr();
+	float st=0.0, tt=0.0, wat=0.0;
 	printf("Enter no. of processes: ");
 	scanf("%d", &n);
 	for(i=0; i<n; i++)
@@ -76,7 +74,7 @@ void main()
 				}
 				else
 				{
-					wtt = st-wt[i];
+					wtt[i] = st-wt[i];
 					st += brst[i];
 					printf("\nwtt of %d is %d", i, wtt[i]);
 					wat = wat+wtt[i]-arv[i];
@@ -84,11 +82,10 @@ void main()
 					printf("\nfor %d, aiting time is %f\nturn around time is %f", i, wat/n, tt/n);
 					brst[i] = 0;
 				}
-				if(burst[maxi]==0)
+				if(brst[maxi]==0)
 					y=0;
 			}
 		}
 
 	printf("\nWaiting time= %f\nTurn around time= %f", wat/n, tt/n);
-	getch();
 }
