@@ -6,7 +6,7 @@
 
 void main()
 {
-	int i, j, n, at, bt, temp, temp1, temp2, awt[50], c, c_loc;
+	int i, j, n, at, bt, temp, temp1, temp2, awt[50], c, c_loc, k, t2, x;
 	float awtime, att[50], burst, attime, a_wait;
 	int mat[50][3];
 //	clrscr();
@@ -17,7 +17,10 @@ void main()
 		mat[i][0] = i+1;
 		printf("Enter arrival and burst time for %d process: ", i+1);
 		for(j=1; j<3; j++)
-			scanf("%d", &n);
+		{
+			scanf("%d", &x);
+			mat[i][j] = x;
+		}			
 	}
 	
 	printf("\nProcess\tArrival Time\tBurst Time\n");
