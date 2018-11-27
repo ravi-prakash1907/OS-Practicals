@@ -18,7 +18,7 @@ void main()
 		printf("Enter arrival and burst time for %d process: ", i+1);
 		for(j=1; j<3; j++)
 		{
-			scanf("%d", &x);
+			printf("%d", &x);
 			mat[i][j] = x;
 		}			
 	}
@@ -27,7 +27,7 @@ void main()
 	for(i=0; i<n; i++)
 	{
 		for(j=0; j<3; j++)
-			scanf("%d\t", mat[i][j]);
+			printf("%d\t", mat[i][j]);
 		printf("\n");
 	}
 	
